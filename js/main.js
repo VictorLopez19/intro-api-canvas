@@ -1,19 +1,23 @@
 function drawRectangle (ctx){
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "rgb(20, 20, 190)";  // Rectángulo relleno en azul oscuro
     ctx.fillRect(10, 10, 100, 60);
 }
 
 function drawRectangles(ctx) {
     // Dibuja un rectángulo relleno
+    ctx.fillStyle = "rgb(1, 255, 107)";  // Rectángulo relleno en naranja
     ctx.fillRect(25, 25, 100, 100);
     // Borra un área rectangular del canvas
     ctx.clearRect(45, 45, 60, 60);
     // Dibuja un rectángulo contorneado
+    ctx.strokeStyle = "rgb(0, 128, 0)";  // Contorno del rectángulo en verde
+    ctx.lineWidth = 5;
     ctx.strokeRect(50, 50, 50, 50);
 }
 
 function drawTriangles(ctx) {
     // Dibuja un triángulo relleno
+    ctx.fillStyle = "rgb(238, 167, 1)";  // Triángulo relleno en púrpura
     ctx.beginPath();
     ctx.moveTo(75, 50);
     ctx.lineTo(100, 75);
@@ -36,6 +40,7 @@ function drawSmileyFace(ctx) {
 
 function drawLines(ctx) {
     // Dibuja un triángulo relleno
+    ctx.fillStyle = "rgb(0, 128, 255)";  // Triángulo relleno en rojo
     ctx.beginPath();
     ctx.moveTo(25, 25);
     ctx.lineTo(105, 25);
@@ -43,6 +48,7 @@ function drawLines(ctx) {
     ctx.fill();
 
     // Dibuja un triángulo contorneado
+    ctx.strokeStyle = "rgb(0, 0, 255)";  // Contorno del triángulo en azul
     ctx.beginPath();
     ctx.moveTo(125, 125);
     ctx.lineTo(125, 45);
@@ -66,8 +72,10 @@ function drawArcs(ctx) {
             ctx.arc(x, y, radius, startAngle, endAngle, counterclockwise);
 
             if (i > 1) {
+                ctx.fillStyle = "rgb(14, 151, 197)";  // Arcos llenos en azul claro
                 ctx.fill();
             } else {
+                ctx.strokeStyle = "rgb(0, 0, 0)";  // Arcos contorneados en negro
                 ctx.stroke();
             }
         }
@@ -76,6 +84,7 @@ function drawArcs(ctx) {
 
 function drawQuadraticCurves(ctx) {
     // Dibuja una serie de curvas cuadráticas
+    ctx.strokeStyle = "rgb(8, 0, 154)";  // Color de la curva cuadrática en marrón
     ctx.beginPath();
     ctx.moveTo(75, 25);
     ctx.quadraticCurveTo(25, 25, 25, 62.5);
@@ -89,6 +98,7 @@ function drawQuadraticCurves(ctx) {
 
 function drawBezierCurves(ctx) {
     // Dibuja una serie de curvas cúbicas de Bezier
+    ctx.fillStyle = "rgb(255, 0, 0)";  // Curvas cúbicas rellenas en rosa
     ctx.beginPath();
     ctx.moveTo(75, 40);
     ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
@@ -102,6 +112,7 @@ function drawBezierCurves(ctx) {
 
 function drawCombinations(ctx) {
     // Dibuja una combinación de formas como rectángulos, círculos y curvas
+    ctx.strokeStyle = "rgb(0, 29, 156)";  // Color de los contornos de las figuras en verde oscuro
     roundedRect(ctx, 12, 12, 150, 150, 15);
     roundedRect(ctx, 19, 19, 150, 150, 9);
     roundedRect(ctx, 53, 53, 49, 33, 10);
@@ -110,6 +121,7 @@ function drawCombinations(ctx) {
     roundedRect(ctx, 135, 119, 25, 49, 10);
 
     // Dibuja detalles adicionales como círculos y rectángulos pequeños
+    ctx.fillStyle = "rgb(238, 238, 0)";  // Color de los detalles pequeños en violeta
     ctx.beginPath();
     ctx.arc(37, 37, 13, Math.PI / 7, -Math.PI / 7, false);
     ctx.lineTo(31, 37);
@@ -128,6 +140,7 @@ function drawCombinations(ctx) {
     }
 
     // Dibuja una figura de rostro sonriente con detalles
+    ctx.fillStyle = "rgb(255, 0, 0)";  // Color del rostro sonriente en amarillo claro
     ctx.beginPath();
     ctx.moveTo(83, 116);
     ctx.lineTo(83, 102);
@@ -142,7 +155,7 @@ function drawCombinations(ctx) {
     ctx.lineTo(83, 116);
     ctx.fill();
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "rgb(255, 255, 255)";  // Ojos en blanco
     ctx.beginPath();
     ctx.moveTo(91, 96);
     ctx.bezierCurveTo(88, 96, 87, 99, 87, 101);
@@ -156,7 +169,7 @@ function drawCombinations(ctx) {
     ctx.bezierCurveTo(107, 99, 106, 96, 103, 96);
     ctx.fill();
 
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "rgb(0, 0, 0)";  // Pupilas en negro
     ctx.beginPath();
     ctx.arc(101, 102, 2, 0, Math.PI * 2, true);
     ctx.fill();
@@ -174,6 +187,7 @@ function roundedRect(ctx, x, y, width, height, radius) {
     ctx.arcTo(x + width, y + height, x + width, y + height - radius, radius);
     ctx.arcTo(x + width, y, x + width - radius, y, radius);
     ctx.arcTo(x, y, x, y + radius, radius);
+    ctx.closePath();
     ctx.stroke();
 }
 
@@ -185,7 +199,10 @@ function drawPath2D(ctx) {
     const circle = new Path2D();
     circle.arc(100, 35, 25, 0, 2 * Math.PI);
 
+    ctx.strokeStyle = "rgb(0, 148, 27)";  // Contorno en marrón
     ctx.stroke(rectangle);
+
+    ctx.fillStyle = "rgb(17, 237, 5)";  // Círculo relleno en cian
     ctx.fill(circle);
 }
 
